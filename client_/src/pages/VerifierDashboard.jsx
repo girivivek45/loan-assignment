@@ -32,7 +32,7 @@ export default function VerifierDashboard() {
   useEffect(() => {
     async function fetchLoans() {
       try {
-        const response = await fetch("http://localhost:5000/api/loans/all", {
+        const response = await fetch("https://loan-assignment.onrender.com/api/loans/all", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -55,7 +55,7 @@ export default function VerifierDashboard() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/loans/update-status/${loanId}`,
+        `https://loan-assignment.onrender.com/api/loans/update-status/${loanId}`,
         {
           method: "PATCH",
           headers: {

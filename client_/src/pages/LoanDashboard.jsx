@@ -51,7 +51,7 @@ export default function LoanDashboard() {
       setIsLoading(true);
       try {
         const response = await fetch(
-          `http://localhost:5000/api/loans/status`,
+          `https://loan-assignment.onrender.com/api/loans/status`,
           {
             headers: {
               'Authorization': `Bearer ${localStorage.getItem('token')}`
