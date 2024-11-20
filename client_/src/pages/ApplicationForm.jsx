@@ -55,7 +55,7 @@ export default function ApplicationForm() {
     setIsLoading(true);
 
     try {
-      const response = await fetch('https://loan-assignment.onrender.com/api/loans/apply', {
+      const response = await fetch('https://asdfkjakdsfw.xyz/api/loans/apply', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -32,7 +32,7 @@ export default function AdminDashboard() {
   useEffect(() => {
     async function fetchLoans() {
       try {
-        const response = await fetch("https://loan-assignment.onrender.com/api/loans/all", {
+        const response = await fetch("https://asdfkjakdsfw.xyz/api/loans/all", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -55,7 +55,7 @@ export default function AdminDashboard() {
     }
     try {
       const response = await fetch(
-        `https://loan-assignment.onrender.com/api/loans/update-status/${loanId}`,
+        `https://asdfkjakdsfw.xyz/api/loans/update-status/${loanId}`,
         {
           method: "PATCH",
           headers: {
