@@ -21,6 +21,7 @@ const userSchema = new Schema<IUser>({
 });
 
 // Middleware to update `updatedAt` before saving
+
 userSchema.pre<IUser>('save', function (next) {
   this.updatedAt = new Date();
   next();
