@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'backend/'
+      - 'loan-backend/'
 
 jobs:
   deploy-backend:
