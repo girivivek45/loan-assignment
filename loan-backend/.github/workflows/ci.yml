@@ -1,0 +1,48 @@
+name: CI for Backend
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  backend-ci:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout Backend Code
+        uses: actions/checkout@v3
+        with:
+          path: backend
+
+      - name: Install Backend Dependencies
+        run: |
+          cd backend
+          npm install
+
+      - name: Run Backend Tests
+        run: |
+          cd backend
+          npm test
+
+      - name: Deploy Backend to EC2 and Restart with PM2
+        env:
+          PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+        run: |
+          # Save the private key to a file
+          echo "$PRIVATE_KEY" > private_key.pem
+          chmod 600 private_key.pem
+
+          # SSH into EC2 and deploy the backend
+          ssh -o StrictHostKeyChecking=no -i private_key.pem ubuntu@ec2-16-16-209-161 << 'EOF'
+            cd /home/ubuntu/backend
+            git pull origin main
+            npm install
+            pm2 restart app  # Replace with your actual PM2 process name
+          EOF
+          
+          # Clean up the private key file
+          rm private_key.pem
