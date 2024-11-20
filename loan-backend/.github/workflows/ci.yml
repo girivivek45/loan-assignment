@@ -19,7 +19,7 @@ jobs:
     # Build the backend application
     - name: Build Backend Application
       run: |
-        cd backend
+        cd loan-backend
         npm install
         npm run build
 
