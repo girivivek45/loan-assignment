@@ -36,5 +36,7 @@ const loanApplicationSchema = new Schema<ILoanApplication>({
   }
 });
 
+
+
 const LoanApplication = mongoose.model<ILoanApplication>('LoanApplication', loanApplicationSchema);
 export default LoanApplication;
