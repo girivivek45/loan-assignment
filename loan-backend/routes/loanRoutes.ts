@@ -9,7 +9,7 @@ import { authMiddleWare } from '../middleware/auth';
 
 const router = Router();
 
-// POST a new loan application
+// POST a new loan-application
 router.post('/apply', authMiddleWare, submitLoanApplication);
 
 // GET all loan applications
