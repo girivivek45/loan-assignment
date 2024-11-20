@@ -4,7 +4,7 @@ import { IGetUser } from '../routes/role';
 
 type UserRole = 'user' | 'admin' | 'verifier';
 
-// Submit a new loan application
+// Submit a new application
 export const submitLoanApplication = async (req: IGetUser, res: Response) => {
   try {
     const applicantId = req.user;
