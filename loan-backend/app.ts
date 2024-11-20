@@ -24,7 +24,9 @@ app.use(cors({
     credentials:true
 }))
 
-
+app.get("/",async(req,res)=>{
+  res.send("hello world");
+})
 app.use("/api",user);
 app.use("/api/loans",loanRoutes);
 
