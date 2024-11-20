@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'loan-backend/**'
+      - 'loan-backend/'
 
 jobs:
   deploy-backend:
@@ -19,12 +19,12 @@ jobs:
     # Build the backend application
     - name: Build Backend Application
       run: |
-        cd loan-backend
-        git pull origin main
+        cd ~/actions-runner/_work/loan-assignment/loan-assignment/loan-backend
         npm install
         npm run build
 
-    # Restart the application using PM2
-    - name: Restart Server with PM2
+    # Restart the PM2 process
+    - name: Restart Backend with PM2
       run: |
+        cd ~/actions-runner/_work/loan-assignment/loan-assignment/loan-backend
         pm2 restart app
