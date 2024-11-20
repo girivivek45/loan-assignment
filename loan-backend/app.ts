@@ -25,7 +25,7 @@ app.use(cors({
 }))
 
 app.get("/",async(req,res)=>{
-  res.send("hello world");
+  res.send("hello world!");
 })
 
 app.use("/api",user);
